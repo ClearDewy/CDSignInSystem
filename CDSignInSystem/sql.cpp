@@ -103,10 +103,12 @@ void Sql::updateUser(User user){
         std::vector<cv::Mat>faces=user.getFaces();
         for(int i=0;i<faces.size();i++){
             query.clear();
-            if(query.exec(QString("UPDATE `img` SET `Img`='%1' WHERE `UserId`=%2 AND `Idx`=%3").arg(QByteArray((char*)faces[i].data)).arg(user.getId()).arg(i+1))){
+            query.prepare(QString("UPDATE `img` SET `Img`=:Img WHERE `UserId`=%1 AND `Idx`=%2").arg(user.getId()).arg(i+1));
+            query.bindValue(":Img",matToByte(faces[i]));
+            if(query.exec()){
 
             }else{
-                qDebug()<<"更新用户信息失败";
+                qDebug()<<"更新用户信息失败";return;
             }
         }
     }else{
