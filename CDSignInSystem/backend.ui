@@ -14,56 +14,79 @@
    <string>CD Sign In System(admin)</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="LogOut">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
-      <y>0</y>
-      <width>41</width>
-      <height>18</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>登出</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>60</y>
-      <width>251</width>
-      <height>131</height>
+      <x>10</x>
+      <y>10</y>
+      <width>141</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="text">
      <string>此处是后台信息管理</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="saveButton">
+   <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>300</y>
-      <width>80</width>
-      <height>18</height>
+      <x>640</x>
+      <y>80</y>
+      <width>160</width>
+      <height>321</height>
      </rect>
     </property>
-    <property name="text">
-     <string>保存</string>
-    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="LogOut">
+       <property name="text">
+        <string>登出</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="addButton">
+       <property name="text">
+        <string>PushButton</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="saveButton">
+       <property name="text">
+        <string>保存</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
-   <widget class="QPushButton" name="addButton">
+   <widget class="QWidget" name="verticalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>120</y>
-      <width>80</width>
-      <height>18</height>
+      <x>180</x>
+      <y>0</y>
+      <width>401</width>
+      <height>80</height>
      </rect>
     </property>
-    <property name="text">
-     <string>PushButton</string>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item alignment="Qt::AlignHCenter">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;后 台 信 息 管 理 界 面&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QTableView" name="tableView">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>80</y>
+      <width>641</width>
+      <height>391</height>
+     </rect>
     </property>
    </widget>
   </widget>
@@ -73,7 +96,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>23</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

@@ -14,43 +14,20 @@
    <string>CD Sign In System</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="LogIn">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
-      <y>0</y>
-      <width>41</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>登录</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="SignIn">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>130</y>
-      <width>80</width>
-      <height>18</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>签到</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="videoLable">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>30</y>
+      <x>280</x>
+      <y>90</y>
       <width>271</width>
       <height>291</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/new/Img/1.png);</string>
+    </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="messageLabel">
@@ -66,17 +43,66 @@
      <string>TextLabel</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="cancelButton">
+   <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>220</y>
-      <width>80</width>
-      <height>18</height>
+      <x>570</x>
+      <y>90</y>
+      <width>160</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="SignIn">
+       <property name="text">
+        <string>签到</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="cancelButton">
+       <property name="text">
+        <string>取消</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="LogIn">
+       <property name="text">
+        <string>后端界面登录</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="Time">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>20</y>
+      <width>191</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>取消</string>
+     <string>时间显示</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Frame1">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>60</y>
+      <width>341</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/new/Img/3.png);</string>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>
@@ -86,7 +112,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>23</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

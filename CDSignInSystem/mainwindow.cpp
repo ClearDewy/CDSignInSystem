@@ -1,6 +1,10 @@
 #include "ui_mainwindow.h"
 #include "mainwindow.h"
-
+//时间显示
+#include <QFont>
+#include <QTime>
+#include <QTimer>
+#include <qdatetime.h>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -11,6 +15,21 @@ MainWindow::MainWindow(QWidget *parent)
     ui->cancelButton->hide();
     timer=new QTimer;
     connect(timer, SIGNAL(timeout()), this, SLOT(readFarme()));  // 时间到，读取当前摄像头信息
+
+    //时间显示
+    QTimer *timer = new QTimer(this);
+    connect(timer,SIGNAL(timeout()),this,SLOT(timerUpdata()));
+    timer->start(1000);
+
+    //videoLable大小更改
+    QImage img1("1.png");
+    img1 = img1.scaled(ui->videoLable->width(), ui->videoLable->height());//图片大小设置，与videoLable大小适配
+    ui->videoLable->setPixmap(QPixmap::fromImage(img1));
+    //Frame1大小更改
+    QImage img2("2.png");
+    img2 = img2.scaled(ui->Frame1->width(), ui->Frame1->height());//图片大小设置，与Frame1大小适配
+    ui->Frame1->setPixmap(QPixmap::fromImage(img2));
+
 
     //加载分类训练器，OpenCv官方文档提供的xml文档，可以直接调用
     //xml文档路径，  opencv\sources\data\haarcascades
@@ -158,4 +177,16 @@ void MainWindow::on_cancelButton_clicked()
 {
     // timer->stop();
     capture.release();
+}
+
+void MainWindow::timerUpdata()
+{
+    QFont font("Microsoft YaHei",10,50);
+    //第一个属性是字体（微软雅黑），第二个是大小，第三个是加粗（权重是75）
+    QDateTime time = QDateTime::currentDateTime();
+    QString str = time.toString("yyyy-MM-dd hh:mm:ss dddd");
+    QString str1 = time.toString("yyyy-MM-dd hh:mm:ss");
+    ui -> Time ->setFont(font);
+    this -> ui->Time->setText(str);
+    //ui->text->show();
 }

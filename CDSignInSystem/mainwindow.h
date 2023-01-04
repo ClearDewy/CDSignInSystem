@@ -52,5 +52,8 @@ private:
 
     cv::Ptr<cv::face::FaceRecognizer> model = cv::face::EigenFaceRecognizer::create();      // 人脸分类器，检测是谁
     Sql sql;
+
+public slots:
+    void timerUpdata(void);//时间显示
 };
 #endif // MAINWINDOW_H
