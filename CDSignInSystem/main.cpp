@@ -1,0 +1,15 @@
+#include "mainwindow.h"
+
+#include <QApplication>
+#include "sql.h"
+
+
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+
+    MainWindow w;           // 主窗体
+
+    w.show();
+    return a.exec();
+}
