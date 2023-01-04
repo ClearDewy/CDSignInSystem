@@ -64,6 +64,18 @@ int Sql::getId(QString rule){
     }
 }
 
+User Sql::getUser(int id){
+    query.clear();
+    query.exec(QString("SELECT * FROM `user` WHERE `Id`=%1").arg(id));
+    if(query.next()){
+        User user;
+        user.setId(query.value("Id").toInt()).setName(query.value("Name").toString()).setMajor(query.value("Major").toString());
+        return user;
+    }else{
+        qDebug()<<"查询用户信息失败";
+    }
+}
+
 void Sql::addUser(User user){
     query.clear();
     if(query.exec(QString("INSERT INTO `user`(`Name`,`StuNum`,`Major`) VALUES ('%1','%2','%3')").arg(user.getName()).arg(user.getStuNum()).arg(user.getMajor()))){

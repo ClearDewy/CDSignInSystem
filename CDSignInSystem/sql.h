@@ -20,6 +20,7 @@ public:
     void updateModleXML(QByteArray);
     void getAllFaces(std::vector<cv::Mat>&,std::vector<int>&);
     bool logIn(QString,QString);
+    User getUser(int);
 protected:
     void addFace(int,std::vector<cv::Mat>);
     QByteArray matToByte(cv::Mat&);

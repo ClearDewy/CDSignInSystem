@@ -96,6 +96,11 @@ void MainWindow::readFarme()
         predict=Predict();
         if(predict){
             timer->stop();
+            ui->SignIn->setEnabled(true);
+            ui->cancelButton->hide();
+            if(QMessageBox::question(this,"打卡确认",tr("用户：%1 是否打卡？").arg(sql.getUser(predict).getName()))==QMessageBox::Ok){
+
+            }
         }
     }
     else
@@ -129,6 +134,7 @@ int MainWindow::Predict(){
 void MainWindow::on_SignIn_clicked()
 {
     ui->cancelButton->show();
+    ui->SignIn->setEnabled(false);
     OpenCamara();   // 打开摄像头
     predict=0;
     timer->start(TIME_INTERVAL);
