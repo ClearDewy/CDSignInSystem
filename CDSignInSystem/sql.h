@@ -6,6 +6,7 @@
 #include <QSqlError>
 #include <QDataStream>
 #include <QIODevice>
+#include <QStandardItemModel>
 
 class Sql
 {
@@ -21,6 +22,8 @@ public:
     void getAllFaces(std::vector<cv::Mat>&,std::vector<int>&);
     bool logIn(QString,QString);
     User getUser(int);
+    void getAllUser(QStandardItemModel&);
+    bool signIn(int);
 protected:
     void addFace(int,std::vector<cv::Mat>);
     QByteArray matToByte(cv::Mat&);

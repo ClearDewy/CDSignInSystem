@@ -42,7 +42,7 @@
     <item>
      <widget class="QPushButton" name="sureButton">
       <property name="enabled">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="text">
        <string>确定</string>

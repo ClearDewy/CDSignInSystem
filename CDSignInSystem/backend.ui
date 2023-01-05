@@ -38,16 +38,23 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QPushButton" name="LogOut">
+      <widget class="QPushButton" name="addButton">
        <property name="text">
-        <string>登出</string>
+        <string>添加用户</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="addButton">
+      <widget class="QPushButton" name="updateUserButton">
        <property name="text">
-        <string>添加用户</string>
+        <string>修改用户</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="deleteUserButton">
+       <property name="text">
+        <string>删除用户</string>
        </property>
       </widget>
      </item>
@@ -79,7 +86,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QTableView" name="tableView">
+   <widget class="QTableView" name="userView">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -87,6 +94,22 @@
       <width>641</width>
       <height>391</height>
      </rect>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::NoEditTriggers</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="LogOut">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>0</y>
+      <width>158</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>登出</string>
     </property>
    </widget>
   </widget>

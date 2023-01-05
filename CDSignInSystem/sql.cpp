@@ -76,6 +76,30 @@ User Sql::getUser(int id){
     }
 }
 
+void Sql::getAllUser(QStandardItemModel&tmodel){
+    query.clear();
+    if(query.exec(QString("SELECT `Id`,`Name`,`StuNum`,`Major`,`IsAlive`,`StartTime` FROM `user`,`userstatus` WHERE `Id`=`UserId`"))){
+        qDebug()<<"获取用户列表成功";
+
+    }else{
+        qDebug()<<"获取用户列表失败";
+    }
+    int idx=0;
+    tmodel.setRowCount(query.size());
+    while(query.next()){
+        tmodel.setItem(idx,0,new QStandardItem(query.value(0).toString()));
+        tmodel.setItem(idx,1,new QStandardItem(query.value(1).toString()));
+        tmodel.setItem(idx,2,new QStandardItem(query.value(2).toString()));
+        tmodel.setItem(idx,3,new QStandardItem(query.value(3).toString()));
+        if(query.value(4).toBool()){
+            tmodel.setItem(idx,4,new QStandardItem(query.value(5).toString()));
+        }else{
+            tmodel.setItem(idx,4,new QStandardItem("未打卡"));
+        }
+        idx++;
+    }
+}
+
 void Sql::addUser(User user){
     query.clear();
     if(query.exec(QString("INSERT INTO `user`(`Name`,`StuNum`,`Major`) VALUES ('%1','%2','%3')").arg(user.getName()).arg(user.getStuNum()).arg(user.getMajor()))){
@@ -161,5 +185,29 @@ bool Sql::logIn(QString username,QString password){
     }else{
         qDebug()<<"账号密码查询失败";
         return false;
+    }
+}
+
+bool Sql::signIn(int id){
+    query.clear();
+    if(query.exec(QString("SELECT `IsAlive`,`StartTime` FROM `userstatus` WHERE `UserId`=%1").arg(id))){
+        query.next();
+        if(!query.value(0).toBool()){
+            query.clear();
+            query.exec(QString("UPDATE `userstatus` SET `IsAlive`=true,`StartTime`=now() WHERE UserId=%1").arg(id));
+            return 1;
+        }else{
+            QDateTime starttime=query.value(1).toDateTime();
+            query.clear();
+            query.prepare("INSERT `record`(`UserId`,`StartTime`,`EndTime`,`Time`) VALUES (:UserId,:StartTime,now(),(UNIX_TIMESTAMP(now())-UNIX_TIMESTAMP(:StartTime))/3600)");
+            query.bindValue(":UserId",id);
+            query.bindValue(":StartTime",starttime);
+            query.exec();
+            query.clear();
+            query.exec(QString("UPDATE `userstatus` SET `IsAlive`=false,`StartTime`=null WHERE UserId=%1").arg(id));
+            return 0;
+        }
+    }else{
+        qDebug("打卡失败");
     }
 }

@@ -24,6 +24,8 @@ public:
     User& addFace(cv::Mat);
     User& setFaces(std::vector<cv::Mat>);
     int getPicNum();
+    User& setIsAlive(bool);
+    bool getIsAlive();
 
 
 private:
@@ -31,6 +33,7 @@ private:
     QString Name;
     QString StuNum;
     QString Major;
+    bool IsAlive;
     QDateTime StartTime;
     std::vector<cv::Mat>Faces;
 };

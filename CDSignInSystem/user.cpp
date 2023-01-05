@@ -3,6 +3,7 @@
 User::User()
 {
     Id=-1;
+    IsAlive=false;
 }
 
 int User::getId(){
@@ -32,6 +33,14 @@ User& User::setStuNum(QString stuNum){
 User& User::setMajor(QString major){
     Major=major;
     return *this;
+}
+
+User& User::setIsAlive(bool alive){
+    IsAlive=alive;
+    return *this;
+}
+bool User::getIsAlive(){
+    return IsAlive;
 }
 QDateTime User::getStartTime(){
     return StartTime;

@@ -98,7 +98,12 @@ void MainWindow::readFarme()
             timer->stop();
             ui->SignIn->setEnabled(true);
             ui->cancelButton->hide();
-            if(QMessageBox::question(this,"打卡确认",tr("用户：%1 是否打卡？").arg(sql.getUser(predict).getName()))==QMessageBox::Ok){
+            if(QMessageBox::question(this,"打卡确认",tr("用户：%1 是否打卡？").arg(sql.getUser(predict).getName()))==QMessageBox::Yes){
+                if(sql.signIn(predict)){
+                    QMessageBox::information(this,"打卡成功",tr("签到成功"));
+                }else{
+                    QMessageBox::information(this,"退签成功",tr("退签成功"));
+                }
 
             }
         }

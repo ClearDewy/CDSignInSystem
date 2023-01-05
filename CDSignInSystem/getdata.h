@@ -26,7 +26,7 @@ class GetData : public QDialog
 
 public:
     explicit GetData(QWidget *parent = nullptr);
-    GetData(User);
+    explicit GetData(User,QWidget *parent = nullptr);
     ~GetData();
     User getUserData();
 
