@@ -20,6 +20,16 @@ Backend::Backend(QWidget *parent) :
     ui->LogOut->setIcon(QIcon(":/new/Img/4.png"));
     ui->LogOut->setLayoutDirection(Qt::LeftToRight);
 
+    //滑动图标大小
+    ui->homeButton->setIcon(QIcon(":/new/Img/home.png"));
+    ui->homeButton->setIconSize(QSize(38,38));
+    ui->userButton->setIcon(QIcon(":/new/Img/user.png"));
+    ui->userButton->setIconSize(QSize(38,38));
+    ui->timeButton->setIcon(QIcon(":/new/Img/time.png"));
+    ui->timeButton->setIconSize(QSize(38,38));
+    ui->accountButton->setIcon(QIcon(":/new/Img/root-list.png"));
+    ui->accountButton->setIconSize(QSize(38,38));
+
 
     // 初始化
     btnGroup->addButton(ui->homeButton,2);

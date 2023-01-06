@@ -1,11 +1,16 @@
 <RCC>
     <qresource prefix="/new">
-        <file>Img/password.png</file>
-        <file>Img/people_number.png</file>
         <file>Img/1.png</file>
         <file>Img/2.png</file>
         <file>Img/3.png</file>
         <file>Img/4.png</file>
-        <file>Img/Icon_download.png</file>
+        <file>Img/close.png</file>
+        <file>Img/home.png</file>
+        <file>Img/password.png</file>
+        <file>Img/people_number.png</file>
+        <file>Img/remove.png</file>
+        <file>Img/root-list.png</file>
+        <file>Img/time.png</file>
+        <file>Img/user.png</file>
     </qresource>
 </RCC>
