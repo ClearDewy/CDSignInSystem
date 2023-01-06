@@ -14,11 +14,21 @@ Backend::Backend(QWidget *parent) :
     userWnd=new UserWnd(sql);
     timeWnd=new TimeWnd(sql);
     accountWnd=new AccountWnd(sql);
-
+    dragPosition = new QPoint;
 
     // 样式设置
     ui->LogOut->setIcon(QIcon(":/new/Img/4.png"));
     ui->LogOut->setLayoutDirection(Qt::LeftToRight);
+    this->setFixedSize(1000,600);
+    this->setWindowFlags(Qt::FramelessWindowHint);
+    this->setAutoFillBackground(true);
+    this->setAttribute(Qt::WA_TranslucentBackground);
+    ui->closeButton->setIcon(QIcon(":new/Img/close.png"));
+    ui->minSizeButton->setIcon(QIcon(":new/Img/remove.png"));
+    ui->closeButton->setIconSize(QSize(20,20));
+    ui->minSizeButton->setIconSize(QSize(20,20));
+    ui->closeButton->setGeometry(QRect(950, 20, 26, 30));
+    ui->minSizeButton->setGeometry(QRect(920, 20, 26, 30));
 
     //滑动图标大小
     ui->homeButton->setIcon(QIcon(":/new/Img/home.png"));
@@ -44,6 +54,8 @@ Backend::Backend(QWidget *parent) :
 
 
     connect(btnGroup,QOverload<int>::of(&QButtonGroup::idClicked), ui->stackedWidget, &QStackedWidget::setCurrentIndex);
+    connect(ui->minSizeButton,&QToolButton::clicked,this,&QMainWindow::showMinimized);
+    connect(ui->closeButton,&QToolButton::clicked,this,&QMainWindow::close);
     // 设置默认选中的页面
     btnGroup->button(2)->setChecked(true);
     ui->stackedWidget->setCurrentIndex(2);
@@ -65,5 +77,26 @@ void Backend::on_LogOut_clicked()
 }
 
 
+void Backend::mousePressEvent(QMouseEvent *event) {
 
+    if (event->button() == Qt::LeftButton) {
+
+        *dragPosition = event->globalPos() - frameGeometry().topLeft();
+
+        event->accept();
+
+    }
+
+}
+
+void Backend::mouseMoveEvent(QMouseEvent *event) {
+
+    if (event->buttons() & Qt::LeftButton) {
+
+        move(event->globalPos() - *dragPosition);
+
+        event->accept();
+
+    }
+ }
 

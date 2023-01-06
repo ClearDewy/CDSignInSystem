@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QTimer>
+#include <QMouseEvent>
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc/types_c.h>
 #include <opencv2/face.hpp>
@@ -32,6 +33,10 @@ private slots:
 
     void on_cancelButton_clicked();
     void readFarme();       // 获取摄像头每一帧
+    void timerUpdata(void);//时间显示
+
+    void mousePressEvent(QMouseEvent *);
+    void mouseMoveEvent(QMouseEvent *);
 
 protected:
     QImage Mat2QImage(cv::Mat cvImg);       //图片转换
@@ -39,10 +44,10 @@ protected:
     bool CloseCamara();     // 关闭摄像头
 
     int Predict();          // 根据cap识别具体人物
-
+    void init();
 private:
     Ui::MainWindow *ui;
-    QTimer *timer;
+    QTimer *timer,*timerClock;
     QImage imag;
     cv::Mat cap,cap_gray,cap_tmp; //定义一个Mat变量，用于存储每一帧的图像
     cv::VideoCapture capture;       // 声明视频读入类
@@ -52,8 +57,8 @@ private:
 
     cv::Ptr<cv::face::FaceRecognizer> model = cv::face::EigenFaceRecognizer::create();      // 人脸分类器，检测是谁
     Sql sql;
+    QPoint *dragPosition;
 
-public slots:
-    void timerUpdata(void);//时间显示
+
 };
 #endif // MAINWINDOW_H

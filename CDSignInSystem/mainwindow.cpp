@@ -12,19 +12,33 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->cancelButton->hide();
-    timer=new QTimer;
-    connect(timer, SIGNAL(timeout()), this, SLOT(readFarme()));  // 时间到，读取当前摄像头信息
+
+    timer=new QTimer(this);
+    timerClock = new QTimer(this);
+    dragPosition = new QPoint;
 
     //时间显示
-    QTimer *timer = new QTimer(this);
-    connect(timer,SIGNAL(timeout()),this,SLOT(timerUpdata()));
-    timer->start(1000);
+    connect(timerClock,SIGNAL(timeout()),this,SLOT(timerUpdata()));
+    timerClock->start(1000);
+
+    // 样式设置
+    this->setFixedSize(1000,600);
+    this->setWindowFlags(Qt::FramelessWindowHint);
+    this->setAutoFillBackground(true);
+    this->setAttribute(Qt::WA_TranslucentBackground);
+    ui->closeButton->setIcon(QIcon(":new/Img/close.png"));
+    ui->minSizeButton->setIcon(QIcon(":new/Img/remove.png"));
+    ui->closeButton->setIconSize(QSize(20,20));
+    ui->minSizeButton->setIconSize(QSize(20,20));
+    ui->closeButton->setGeometry(QRect(950, 20, 26, 30));
+    ui->minSizeButton->setGeometry(QRect(920, 20, 26, 30));
 
     //videoLable大小更改
     QImage img1("1.png");
     img1 = img1.scaled(ui->videoLable->width(), ui->videoLable->height());//图片大小设置，与videoLable大小适配
     ui->videoLable->setPixmap(QPixmap::fromImage(img1));
+    ui->cancelButton->hide();
+
 
     //音频播放
     //QSound *bells =new QSound("/mnt/hgfs/linux-share-dir/666.wav");
@@ -32,7 +46,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     //加载分类训练器，OpenCv官方文档提供的xml文档，可以直接调用
     //xml文档路径，  opencv\sources\data\haarcascades
-
     if (!face_cascade.load(FACE_XML_PATH))
     {
         qDebug("Load haarcascade_frontalface_alt failed!");
@@ -42,6 +55,11 @@ MainWindow::MainWindow(QWidget *parent)
     f.write(sql.getModelXML());
     f.close();
     model->read(FACE_CLASSIFIER_PATH);      // 加载训练后的xml文件
+
+
+    connect(timer, SIGNAL(timeout()), this, SLOT(readFarme()));  // 时间到，读取当前摄像头信息
+    connect(ui->minSizeButton,&QToolButton::clicked,this,&QMainWindow::showMinimized);
+    connect(ui->closeButton,&QToolButton::clicked,this,&QMainWindow::close);
 }
 
 MainWindow::~MainWindow()
@@ -200,3 +218,27 @@ void MainWindow::timerUpdata()
     this -> ui->Time->setText(str);
     //ui->text->show();
 }
+
+void MainWindow::mousePressEvent(QMouseEvent *event) {
+
+    if (event->button() == Qt::LeftButton) {
+
+        *dragPosition = event->globalPos() - frameGeometry().topLeft();
+
+        event->accept();
+
+    }
+
+}
+
+void MainWindow::mouseMoveEvent(QMouseEvent *event) {
+
+    if (event->buttons() & Qt::LeftButton) {
+
+        move(event->globalPos() - *dragPosition);
+
+        event->accept();
+
+    }
+ }
+
