@@ -7,6 +7,7 @@ LogIn::LogIn(QWidget *parent) :
 {
     ui->setupUi(this);
 
+
     //LineEdit前标识符添加
     QAction* userAction = new QAction(ui->usernameEdit);//新建action
     QAction* passwordAction = new QAction(ui->passwordEdit);

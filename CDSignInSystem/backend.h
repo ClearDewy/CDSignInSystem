@@ -2,10 +2,12 @@
 #define BACKEND_H
 
 #include <QMainWindow>
-#include "train.h"
-#include "sql.h"
-#include <QFile>
-#include <QStandardItemModel>
+#include <QButtonGroup>
+
+#include "homewnd.h"
+#include "userwnd.h"
+#include "timewnd.h"
+#include "accountwnd.h"
 
 namespace Ui {
 class Backend;
@@ -20,24 +22,20 @@ public:
     ~Backend();
 
 protected:
-    void startTrain();
+
 
 private slots:
     void on_LogOut_clicked();
-    void on_addButton_clicked();
 
-    void on_saveButton_clicked();
-
-    void on_updateUserButton_clicked();
-
-    void on_deleteUserButton_clicked();
 
 private:
     Ui::Backend *ui;
-    std::vector<User>updateUserList;
-    std::vector<int>deleteUserIdList;
-    Sql sql;
-    QStandardItemModel tmodel;
+    Sql *sql;
+    QButtonGroup *btnGroup;
+    HomeWnd *homeWnd;
+    UserWnd *userWnd;
+    TimeWnd *timeWnd;
+    AccountWnd *accountWnd;
 };
 
 #endif // BACKEND_H
