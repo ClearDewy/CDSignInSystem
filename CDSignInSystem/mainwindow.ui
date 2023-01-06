@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>731</width>
+    <height>592</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,14 +17,14 @@
    <widget class="QLabel" name="videoLable">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>90</y>
-      <width>271</width>
-      <height>291</height>
+      <x>230</x>
+      <y>140</y>
+      <width>231</width>
+      <height>311</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/new/Img/1.png);</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string/>
@@ -33,8 +33,8 @@
    <widget class="QLabel" name="messageLabel">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>10</y>
+      <x>70</x>
+      <y>140</y>
       <width>81</width>
       <height>21</height>
      </rect>
@@ -46,8 +46,8 @@
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>90</y>
+      <x>530</x>
+      <y>130</y>
       <width>160</width>
       <height>351</height>
      </rect>
@@ -55,6 +55,41 @@
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QPushButton" name="SignIn">
+       <property name="styleSheet">
+        <string notr="true">/**正常情况下样式**/
+QPushButton{
+	font: 10pt &quot;微软雅黑&quot;;
+    color: #2f3640;
+    background-color: #f5f6fa;
+    border-color: #DDDDDD;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 5px;
+}
+
+/**鼠标停留在按钮上的样式**/
+QPushButton::hover{	
+    color: #6ec0ff;
+    background-color: #e5f7ff;
+    border-color: #94d6ff;
+}
+
+/**鼠标按压下去的样式**/
+QPushButton::pressed,QPushButton::checked{
+    color: #6ec0ff;
+    background-color: #e5f7ff;
+    border-color: #4cabff; 
+}
+
+/**按钮失能情况下样式**/
+QPushButton::disabled{
+    color: #FFFFFF;
+    background-color: #dcdde1;
+    border-color: #dcdde1;
+}
+</string>
+       </property>
        <property name="text">
         <string>签到</string>
        </property>
@@ -62,6 +97,41 @@
      </item>
      <item>
       <widget class="QPushButton" name="cancelButton">
+       <property name="styleSheet">
+        <string notr="true">/**正常情况下样式**/
+QPushButton{
+	font: 10pt &quot;微软雅黑&quot;;
+    color: #2f3640;
+    background-color: #f5f6fa;
+    border-color: #DDDDDD;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 5px;
+}
+
+/**鼠标停留在按钮上的样式**/
+QPushButton::hover{	
+    color: #DDDDDD;
+    background-color: #e5f7ff;
+    border-color: #DDDDDD;
+}
+
+/**鼠标按压下去的样式**/
+QPushButton::pressed,QPushButton::checked{
+    color: #AAAAAA;
+    background-color: #e5f7ff;
+    border-color: #AAAAAA; 
+}
+
+/**按钮失能情况下样式**/
+QPushButton::disabled{
+    color: #FFFFFF;
+    background-color: #dcdde1;
+    border-color: #dcdde1;
+}
+</string>
+       </property>
        <property name="text">
         <string>取消</string>
        </property>
@@ -69,6 +139,41 @@
      </item>
      <item>
       <widget class="QPushButton" name="LogIn">
+       <property name="styleSheet">
+        <string notr="true">/**正常情况下样式**/
+QPushButton{
+	font: 10pt &quot;微软雅黑&quot;;
+    color: #2f3640;
+    background-color: #f5f6fa;
+    border-color: #DDDDDD;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 5px;
+}
+
+/**鼠标停留在按钮上的样式**/
+QPushButton::hover{	
+    color: #6ec0ff;
+    background-color: #e5f7ff;
+    border-color: #94d6ff;
+}
+
+/**鼠标按压下去的样式**/
+QPushButton::pressed,QPushButton::checked{
+    color: #6ec0ff;
+    background-color: #e5f7ff;
+    border-color: #4cabff; 
+}
+
+/**按钮失能情况下样式**/
+QPushButton::disabled{
+    color: #FFFFFF;
+    background-color: #dcdde1;
+    border-color: #dcdde1;
+}
+</string>
+       </property>
        <property name="text">
         <string>后端界面登录</string>
        </property>
@@ -79,8 +184,8 @@
    <widget class="QLabel" name="Time">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>20</y>
+      <x>530</x>
+      <y>90</y>
       <width>191</width>
       <height>20</height>
      </rect>
@@ -89,21 +194,24 @@
      <string>时间显示</string>
     </property>
    </widget>
-   <widget class="QLabel" name="Frame1">
+   <widget class="QWidget" name="verticalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>60</y>
-      <width>341</width>
-      <height>351</height>
+      <x>140</x>
+      <y>20</y>
+      <width>411</width>
+      <height>51</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">image: url(:/new/Img/3.png);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item alignment="Qt::AlignHCenter">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;门神考勤签到系统&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -111,7 +219,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>731</width>
      <height>26</height>
     </rect>
    </property>

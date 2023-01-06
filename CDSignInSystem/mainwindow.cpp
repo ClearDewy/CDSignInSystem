@@ -5,7 +5,7 @@
 #include <QTime>
 #include <QTimer>
 #include <qdatetime.h>
-
+//音频
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -25,11 +25,10 @@ MainWindow::MainWindow(QWidget *parent)
     QImage img1("1.png");
     img1 = img1.scaled(ui->videoLable->width(), ui->videoLable->height());//图片大小设置，与videoLable大小适配
     ui->videoLable->setPixmap(QPixmap::fromImage(img1));
-    //Frame1大小更改
-    QImage img2("2.png");
-    img2 = img2.scaled(ui->Frame1->width(), ui->Frame1->height());//图片大小设置，与Frame1大小适配
-    ui->Frame1->setPixmap(QPixmap::fromImage(img2));
 
+    //音频播放
+    //QSound *bells =new QSound("/mnt/hgfs/linux-share-dir/666.wav");
+   // bells->play();
 
     //加载分类训练器，OpenCv官方文档提供的xml文档，可以直接调用
     //xml文档路径，  opencv\sources\data\haarcascades

@@ -1,5 +1,11 @@
 <RCC>
     <qresource prefix="/new">
+        <file>Img/password.png</file>
+        <file>Img/people_number.png</file>
         <file>Img/1.png</file>
+        <file>Img/2.png</file>
+        <file>Img/3.png</file>
+        <file>Img/4.png</file>
+        <file>Img/Icon_download.png</file>
     </qresource>
 </RCC>

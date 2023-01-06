@@ -18,6 +18,14 @@ GetData::GetData(QWidget *parent) :
     //加载分类训练器，OpenCv官方文档提供的xml文档，可以直接调用
     //xml文档路径，  opencv\sources\data\haarcascades
 
+    //LineEdit信息删除
+    ui->nameEdit->setClearButtonEnabled(true);
+    ui->stuNumEdit->setClearButtonEnabled(true);
+    ui->majorEdit->setClearButtonEnabled(true);
+
+
+
+
     if (!face_cascade.load(FACE_XML_PATH))
     {
         qDebug("Load haarcascade_frontalface_alt failed!");

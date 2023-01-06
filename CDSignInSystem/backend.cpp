@@ -16,6 +16,20 @@ Backend::Backend(QWidget *parent) :
     sql.getAllUser(tmodel);
     ui->userView->setModel(&tmodel);
     ui->userView->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    //按钮
+    ui->deleteUserButton->setIcon(QIcon(":/new/Img/1.png"));
+    ui->deleteUserButton->setLayoutDirection(Qt::LeftToRight);
+    ui->addButton->setIcon(QIcon(":/new/Img/2.png"));
+    ui->addButton->setLayoutDirection(Qt::LeftToRight);
+    ui->updateUserButton->setIcon(QIcon(":/new/Img/3.png"));
+    ui->updateUserButton->setLayoutDirection(Qt::LeftToRight);
+    ui->saveButton->setIcon(QIcon(":/new/Img/Icon_download.png"));
+    ui->saveButton->setLayoutDirection(Qt::LeftToRight);
+    ui->LogOut->setIcon(QIcon(":/new/Img/4.png"));
+    ui->LogOut->setLayoutDirection(Qt::LeftToRight);
+
+
+
 }
 
 Backend::~Backend()

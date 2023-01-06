@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">image: url(:/new/Img/1.png);</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
@@ -44,6 +44,41 @@
       <property name="enabled">
        <bool>true</bool>
       </property>
+      <property name="styleSheet">
+       <string notr="true">/**正常情况下样式**/
+QPushButton{
+	font: 10pt &quot;微软雅黑&quot;;
+    color: #2f3640;
+    background-color: #f5f6fa;
+    border-color: #DDDDDD;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 5px;
+}
+
+/**鼠标停留在按钮上的样式**/
+QPushButton::hover{	
+    color: #6ec0ff;
+    background-color: #e5f7ff;
+    border-color: #94d6ff;
+}
+
+/**鼠标按压下去的样式**/
+QPushButton::pressed,QPushButton::checked{
+    color: #6ec0ff;
+    background-color: #e5f7ff;
+    border-color: #4cabff; 
+}
+
+/**按钮失能情况下样式**/
+QPushButton::disabled{
+    color: #FFFFFF;
+    background-color: #dcdde1;
+    border-color: #dcdde1;
+}
+</string>
+      </property>
       <property name="text">
        <string>确定</string>
       </property>
@@ -51,6 +86,41 @@
     </item>
     <item>
      <widget class="QPushButton" name="cancelButton">
+      <property name="styleSheet">
+       <string notr="true">/**正常情况下样式**/
+QPushButton{
+	font: 10pt &quot;微软雅黑&quot;;
+    color: #2f3640;
+    background-color: #f5f6fa;
+    border-color: #DDDDDD;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 5px;
+}
+
+/**鼠标停留在按钮上的样式**/
+QPushButton::hover{	
+    color: #CC0000;
+    background-color: #e5f7ff;
+    border-color: #94d6ff;
+}
+
+/**鼠标按压下去的样式**/
+QPushButton::pressed,QPushButton::checked{
+    color: #6ec0ff;
+    background-color: #e5f7ff;
+    border-color: #4cabff; 
+}
+
+/**按钮失能情况下样式**/
+QPushButton::disabled{
+    color: #FFFFFF;
+    background-color: #dcdde1;
+    border-color: #dcdde1;
+}
+</string>
+      </property>
       <property name="text">
        <string>取消</string>
       </property>
@@ -148,6 +218,41 @@
    <layout class="QHBoxLayout" name="horizontalLayout_5">
     <item>
      <widget class="QPushButton" name="startButton">
+      <property name="styleSheet">
+       <string notr="true">/**正常情况下样式**/
+QPushButton{
+	font: 10pt &quot;微软雅黑&quot;;
+    color: #2f3640;
+    background-color: #f5f6fa;
+    border-color: #DDDDDD;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 5px;
+}
+
+/**鼠标停留在按钮上的样式**/
+QPushButton::hover{	
+    color: #6ec0ff;
+    background-color: #e5f7ff;
+    border-color: #94d6ff;
+}
+
+/**鼠标按压下去的样式**/
+QPushButton::pressed,QPushButton::checked{
+    color: #6ec0ff;
+    background-color: #e5f7ff;
+    border-color: #4cabff; 
+}
+
+/**按钮失能情况下样式**/
+QPushButton::disabled{
+    color: #FFFFFF;
+    background-color: #dcdde1;
+    border-color: #dcdde1;
+}
+</string>
+      </property>
       <property name="text">
        <string>开始录入</string>
       </property>
