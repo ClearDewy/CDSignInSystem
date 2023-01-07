@@ -120,6 +120,21 @@ void Sql::getCountTime(QStandardItemModel&tmodel,QDateTime startTime,QDateTime e
     }
 }
 
+int Sql::getTotleUserNum()
+{
+    query.clear();
+    query.exec(QString("SELECT COUNT(*) FROM `userstatus`"));
+    query.next();
+    return query.value(0).toInt();
+}
+int Sql::getAliveUserNum()
+{
+    query.clear();
+    query.exec(QString("SELECT COUNT(*) FROM `userstatus` WHERE `IsAlive`=TRUE"));
+    query.next();
+    return query.value(0).toInt();
+}
+
 void Sql::addUser(User user){
     query.clear();
     if(query.exec(QString("INSERT INTO `user`(`Name`,`StuNum`,`Major`) VALUES ('%1','%2','%3')").arg(user.getName()).arg(user.getStuNum()).arg(user.getMajor()))){

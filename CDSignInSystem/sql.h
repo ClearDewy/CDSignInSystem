@@ -26,6 +26,8 @@ public:
     void getAllUser(QStandardItemModel&);
     void getCountTime(QStandardItemModel&,QDateTime,QDateTime);
     bool signIn(int);
+    int getTotleUserNum();
+    int getAliveUserNum();
 protected:
     void addFace(int,std::vector<cv::Mat>);
     QByteArray matToByte(cv::Mat&);
