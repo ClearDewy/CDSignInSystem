@@ -7,6 +7,7 @@
 #include <QDataStream>
 #include <QIODevice>
 #include <QStandardItemModel>
+#include <qdatetime.h>
 
 class Sql
 {
@@ -23,6 +24,7 @@ public:
     bool logIn(QString,QString);
     User getUser(int);
     void getAllUser(QStandardItemModel&);
+    void getCountTime(QStandardItemModel&,QDateTime,QDateTime);
     bool signIn(int);
 protected:
     void addFace(int,std::vector<cv::Mat>);

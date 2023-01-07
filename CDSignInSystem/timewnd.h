@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "sql.h"
+#include <QStandardItemModel>
 
 namespace Ui {
 class TimeWnd;
@@ -16,9 +17,13 @@ public:
     explicit TimeWnd(Sql*,QWidget *parent = nullptr);
     ~TimeWnd();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::TimeWnd *ui;
     Sql *sql;
+    QStandardItemModel *tmodel;
 };
 
 #endif // TIMEWND_H

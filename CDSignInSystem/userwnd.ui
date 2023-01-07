@@ -41,8 +41,14 @@
      <property name="spacing">
       <number>0</number>
      </property>
+     <property name="rightMargin">
+      <number>3</number>
+     </property>
      <item>
       <widget class="QPushButton" name="addButton">
+       <property name="styleSheet">
+        <string notr="true">border-right:3px solid rgb(240, 240, 240);</string>
+       </property>
        <property name="text">
         <string>添加用户</string>
        </property>
@@ -50,6 +56,9 @@
      </item>
      <item>
       <widget class="QPushButton" name="updateUserButton">
+       <property name="styleSheet">
+        <string notr="true">border-right:3px solid rgb(240, 240, 240);</string>
+       </property>
        <property name="text">
         <string>修改用户</string>
        </property>
@@ -57,6 +66,9 @@
      </item>
      <item>
       <widget class="QPushButton" name="deleteUserButton">
+       <property name="styleSheet">
+        <string notr="true">border-right:3px solid rgb(240, 240, 240);</string>
+       </property>
        <property name="text">
         <string>删除用户</string>
        </property>
@@ -64,6 +76,9 @@
      </item>
      <item>
       <widget class="QPushButton" name="saveButton">
+       <property name="styleSheet">
+        <string notr="true">border-right:3px solid rgb(240, 240, 240);</string>
+       </property>
        <property name="text">
         <string>保存</string>
        </property>

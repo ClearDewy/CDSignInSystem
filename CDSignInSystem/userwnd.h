@@ -36,7 +36,7 @@ private:
     std::vector<User>updateUserList;
     std::vector<int>deleteUserIdList;
     Sql *sql;
-    QStandardItemModel tmodel;
+    QStandardItemModel *tmodel;
 };
 
 #endif // USERWND_H

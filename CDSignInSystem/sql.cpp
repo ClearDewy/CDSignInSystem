@@ -100,6 +100,26 @@ void Sql::getAllUser(QStandardItemModel&tmodel){
     }
 }
 
+void Sql::getCountTime(QStandardItemModel&tmodel,QDateTime startTime,QDateTime endTime){
+    query.clear();
+    query.prepare(QString("SELECT Id,Name,StuNum,SUM(Time) AS Time FROM user,record WHERE UserId=user.Id AND EndTime BETWEEN :StartDate AND :EndDate GROUP BY record.UserId ORDER BY Time DESC,UserId"));
+    query.bindValue(":StartDate",startTime);
+    query.bindValue(":EndDate",endTime);
+    if(query.exec()){
+        int idx=0;
+        tmodel.setRowCount(query.size());
+        while(query.next()){
+            tmodel.setItem(idx,0,new QStandardItem(query.value(0).toString()));
+            tmodel.setItem(idx,1,new QStandardItem(query.value(1).toString()));
+            tmodel.setItem(idx,2,new QStandardItem(query.value(2).toString()));
+            tmodel.setItem(idx,3,new QStandardItem(query.value(3).toString()));
+            idx++;
+        }
+    }else{
+        qDebug()<<"查询失败";
+    }
+}
+
 void Sql::addUser(User user){
     query.clear();
     if(query.exec(QString("INSERT INTO `user`(`Name`,`StuNum`,`Major`) VALUES ('%1','%2','%3')").arg(user.getName()).arg(user.getStuNum()).arg(user.getMajor()))){

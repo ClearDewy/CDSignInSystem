@@ -58,13 +58,13 @@ background-color: rgb(213, 213, 213);
      <rect>
       <x>0</x>
       <y>80</y>
-      <width>801</width>
-      <height>521</height>
+      <width>991</width>
+      <height>481</height>
      </rect>
     </property>
     <property name="baseSize">
      <size>
-      <width>0</width>
+      <width>1000</width>
       <height>0</height>
      </size>
     </property>
