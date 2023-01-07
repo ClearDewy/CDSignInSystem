@@ -16,9 +16,9 @@
   <widget class="QLabel" name="videoLable">
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>330</x>
      <y>30</y>
-     <width>211</width>
+     <width>251</width>
      <height>251</height>
     </rect>
    </property>
@@ -29,23 +29,17 @@
     <string/>
    </property>
   </widget>
-  <widget class="QWidget" name="horizontalLayoutWidget">
+  <widget class="QPushButton" name="startButton">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>290</y>
-     <width>231</width>
-     <height>41</height>
+     <x>70</x>
+     <y>300</y>
+     <width>229</width>
+     <height>37</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <widget class="QPushButton" name="sureButton">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">/**正常情况下样式**/
+   <property name="styleSheet">
+    <string notr="true">/**正常情况下样式**/
 QPushButton{
 	font: 10pt &quot;微软雅黑&quot;;
     color: #2f3640;
@@ -78,16 +72,73 @@ QPushButton::disabled{
     border-color: #dcdde1;
 }
 </string>
-      </property>
-      <property name="text">
-       <string>确定</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="cancelButton">
-      <property name="styleSheet">
-       <string notr="true">/**正常情况下样式**/
+   </property>
+   <property name="text">
+    <string>开始录入</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="sureButton">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>300</y>
+     <width>111</width>
+     <height>37</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/**正常情况下样式**/
+QPushButton{
+	font: 10pt &quot;微软雅黑&quot;;
+    color: #2f3640;
+    background-color: #f5f6fa;
+    border-color: #DDDDDD;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 5px;
+}
+
+/**鼠标停留在按钮上的样式**/
+QPushButton::hover{	
+    color: #6ec0ff;
+    background-color: #e5f7ff;
+    border-color: #94d6ff;
+}
+
+/**鼠标按压下去的样式**/
+QPushButton::pressed,QPushButton::checked{
+    color: #6ec0ff;
+    background-color: #e5f7ff;
+    border-color: #4cabff; 
+}
+
+/**按钮失能情况下样式**/
+QPushButton::disabled{
+    color: #FFFFFF;
+    background-color: #dcdde1;
+    border-color: #dcdde1;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>确定</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancelButton">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>300</y>
+     <width>111</width>
+     <height>37</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/**正常情况下样式**/
 QPushButton{
 	font: 10pt &quot;微软雅黑&quot;;
     color: #2f3640;
@@ -120,145 +171,88 @@ QPushButton::disabled{
     border-color: #dcdde1;
 }
 </string>
-      </property>
-      <property name="text">
-       <string>取消</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   </property>
+   <property name="text">
+    <string>取消</string>
+   </property>
   </widget>
-  <widget class="QWidget" name="horizontalLayoutWidget_2">
+  <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>30</y>
-     <width>231</width>
-     <height>80</height>
+     <x>60</x>
+     <y>200</y>
+     <width>45</width>
+     <height>78</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_2">
-    <item>
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>姓名：</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="nameEdit">
-      <property name="placeholderText">
-       <string>请输入姓名</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   <property name="text">
+    <string>专业：</string>
+   </property>
   </widget>
-  <widget class="QWidget" name="horizontalLayoutWidget_3">
+  <widget class="QLineEdit" name="majorEdit">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>110</y>
-     <width>231</width>
-     <height>80</height>
+     <x>120</x>
+     <y>230</y>
+     <width>171</width>
+     <height>24</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_3">
-    <item>
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>学号：</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="stuNumEdit">
-      <property name="placeholderText">
-       <string>请输入学号</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   <property name="placeholderText">
+    <string>请输入专业</string>
+   </property>
   </widget>
-  <widget class="QWidget" name="horizontalLayoutWidget_4">
+  <widget class="QLineEdit" name="stuNumEdit">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>190</y>
-     <width>231</width>
-     <height>80</height>
+     <x>120</x>
+     <y>160</y>
+     <width>171</width>
+     <height>24</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_4">
-    <item>
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>专业：</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="majorEdit">
-      <property name="placeholderText">
-       <string>请输入专业</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   <property name="placeholderText">
+    <string>请输入学号</string>
+   </property>
   </widget>
-  <widget class="QWidget" name="horizontalLayoutWidget_5">
+  <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>270</y>
-     <width>231</width>
-     <height>80</height>
+     <x>60</x>
+     <y>130</y>
+     <width>51</width>
+     <height>78</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_5">
-    <item>
-     <widget class="QPushButton" name="startButton">
-      <property name="styleSheet">
-       <string notr="true">/**正常情况下样式**/
-QPushButton{
-	font: 10pt &quot;微软雅黑&quot;;
-    color: #2f3640;
-    background-color: #f5f6fa;
-    border-color: #DDDDDD;
-    border-radius: 15px;
-    border-style: solid;
-    border-width: 2px;
-    padding: 5px;
-}
-
-/**鼠标停留在按钮上的样式**/
-QPushButton::hover{	
-    color: #6ec0ff;
-    background-color: #e5f7ff;
-    border-color: #94d6ff;
-}
-
-/**鼠标按压下去的样式**/
-QPushButton::pressed,QPushButton::checked{
-    color: #6ec0ff;
-    background-color: #e5f7ff;
-    border-color: #4cabff; 
-}
-
-/**按钮失能情况下样式**/
-QPushButton::disabled{
-    color: #FFFFFF;
-    background-color: #dcdde1;
-    border-color: #dcdde1;
-}
-</string>
-      </property>
-      <property name="text">
-       <string>开始录入</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   <property name="text">
+    <string>学号：</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="nameEdit">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>90</y>
+     <width>171</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>请输入姓名</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>60</y>
+     <width>51</width>
+     <height>78</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>姓名：</string>
+   </property>
   </widget>
  </widget>
  <resources/>

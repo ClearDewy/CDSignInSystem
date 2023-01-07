@@ -1,6 +1,7 @@
 #include "backend.h"
 #include "ui_backend.h"
 #include "MainWindow.h"
+#include<QToolButton>
 
 Backend::Backend(QWidget *parent) :
     QMainWindow(parent),
@@ -17,8 +18,11 @@ Backend::Backend(QWidget *parent) :
     dragPosition = new QPoint;
 
     // 样式设置
-    ui->LogOut->setIcon(QIcon(":/new/Img/4.png"));
-    ui->LogOut->setLayoutDirection(Qt::LeftToRight);
+    //ui->LogOut->setIcon(QIcon(":/new/Img/4.png"));
+    //ui->LogOut->setLayoutDirection(Qt::LeftToRight);
+    ui->LogOut->setIcon(QIcon(":/new/Img/logout.png"));
+    ui->LogOut->setIconSize(QSize(30,30));
+    ui->LogOut->setStyleSheet("background-color:transparent");
     this->setFixedSize(1000,600);
     this->setWindowFlags(Qt::FramelessWindowHint);
     this->setAutoFillBackground(true);
@@ -39,7 +43,6 @@ Backend::Backend(QWidget *parent) :
     ui->timeButton->setIconSize(QSize(38,38));
     ui->accountButton->setIcon(QIcon(":/new/Img/root-list.png"));
     ui->accountButton->setIconSize(QSize(38,38));
-
 
     // 初始化
     btnGroup->addButton(ui->homeButton,2);

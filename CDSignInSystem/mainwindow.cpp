@@ -34,9 +34,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->minSizeButton->setGeometry(QRect(920, 20, 26, 30));
 
     //videoLable大小更改
-    QImage img1("1.png");
-    img1 = img1.scaled(ui->videoLable->width(), ui->videoLable->height());//图片大小设置，与videoLable大小适配
-    ui->videoLable->setPixmap(QPixmap::fromImage(img1));
+    QPixmap *pixmap = new QPixmap(":/new/Img/scan_400x400.png");
+    pixmap->scaled(ui->videoLable->size(), Qt::KeepAspectRatio);
+    ui->videoLable->setScaledContents(true);
+    ui->videoLable->setPixmap(*pixmap);
     ui->cancelButton->hide();
 
 

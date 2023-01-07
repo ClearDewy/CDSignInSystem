@@ -11,9 +11,11 @@ GetData::GetData(QWidget *parent) :
     connect(timer, SIGNAL(timeout()), this, SLOT(get_pic()));  // 时间到，读取当前摄像头信息
 
     //videoLable大小更改
-    QImage img("1.png");
-    img = img.scaled(ui->videoLable->width(), ui->videoLable->height());//图片大小设置，与videoLable大小适配
-    ui->videoLable->setPixmap(QPixmap::fromImage(img));
+    QPixmap *pixmap = new QPixmap(":/new/Img/scan_400x400.png");
+    pixmap->scaled(ui->videoLable->size(), Qt::KeepAspectRatio);
+    ui->videoLable->setScaledContents(true);
+    ui->videoLable->setPixmap(*pixmap);
+
     ui->sureButton->setEnabled(false);
     //加载分类训练器，OpenCv官方文档提供的xml文档，可以直接调用
     //xml文档路径，  opencv\sources\data\haarcascades
@@ -41,9 +43,10 @@ GetData::GetData(User u,QWidget *parent):
     connect(timer, SIGNAL(timeout()), this, SLOT(get_pic()));  // 时间到，读取当前摄像头信息
 
     //videoLable大小更改
-    QImage img("1.png");
-    img = img.scaled(ui->videoLable->width(), ui->videoLable->height());//图片大小设置，与videoLable大小适配
-    ui->videoLable->setPixmap(QPixmap::fromImage(img));
+    QPixmap *pixmap = new QPixmap(":/new/Img/scan_400x400.png");
+    pixmap->scaled(ui->videoLable->size(), Qt::KeepAspectRatio);
+    ui->videoLable->setScaledContents(true);
+    ui->videoLable->setPixmap(*pixmap);
 
     //加载分类训练器，OpenCv官方文档提供的xml文档，可以直接调用
     //xml文档路径，  opencv\sources\data\haarcascades

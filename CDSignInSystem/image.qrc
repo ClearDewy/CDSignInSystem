@@ -12,5 +12,8 @@
         <file>Img/root-list.png</file>
         <file>Img/time.png</file>
         <file>Img/user.png</file>
+        <file>Img/scan.png</file>
+        <file>Img/scan_400x400.png</file>
+        <file>Img/logout.png</file>
     </qresource>
 </RCC>
