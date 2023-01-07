@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <sql.h>
+#include <QMouseEvent>
 
 namespace Ui {
 class LogIn;
@@ -20,10 +21,14 @@ private slots:
     void on_confirmButton_clicked();
 
     void on_concelButton_clicked();
+    void mousePressEvent(QMouseEvent *);
+    void mouseMoveEvent(QMouseEvent *);
 
 private:
     Ui::LogIn *ui;
     Sql sql;
+    QPoint *dragPosition;
+
 };
 
 #endif // LOGIN_H

@@ -241,5 +241,5 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event) {
         event->accept();
 
     }
- }
+}
 

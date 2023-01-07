@@ -7,6 +7,15 @@ LogIn::LogIn(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //背景设计
+    this->setFixedSize(QSize(668,400));
+    this->setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint);
+    ui->widget->setAutoFillBackground(true);
+    this->setAttribute(Qt::WA_TranslucentBackground);
+    ui->closeButton->setIcon(QIcon(":new/Img/close.png"));
+    ui->minSizeButton->setIcon(QIcon(":new/Img/remove.png"));
+    ui->closeButton->setIconSize(QSize(20,20));
+    ui->minSizeButton->setIconSize(QSize(20,20));
 
     //LineEdit前标识符添加
     QAction* userAction = new QAction(ui->usernameEdit);//新建action
@@ -19,6 +28,9 @@ LogIn::LogIn(QWidget *parent) :
     //LineEdit信息删除
     ui->usernameEdit->setClearButtonEnabled(true);
     ui->passwordEdit->setClearButtonEnabled(true);
+
+    connect(ui->minSizeButton,&QToolButton::clicked,this,&QDialog::showMinimized);
+    connect(ui->closeButton,&QToolButton::clicked,this,&QDialog::close);
 
 
 }
@@ -45,5 +57,28 @@ void LogIn::on_confirmButton_clicked()
 void LogIn::on_concelButton_clicked()
 {
     close();
+}
+
+void LogIn::mousePressEvent(QMouseEvent *event) {
+
+    if (event->button() == Qt::LeftButton) {
+
+        *dragPosition = event->globalPos() - frameGeometry().topLeft();
+
+        event->accept();
+
+    }
+
+}
+
+void LogIn::mouseMoveEvent(QMouseEvent *event) {
+
+    if (event->buttons() & Qt::LeftButton) {
+
+        move(event->globalPos() - *dragPosition);
+
+        event->accept();
+
+    }
 }
 
