@@ -15,5 +15,6 @@
         <file>Img/scan.png</file>
         <file>Img/scan_400x400.png</file>
         <file>Img/logout.png</file>
+        <file>Img/face.png</file>
     </qresource>
 </RCC>

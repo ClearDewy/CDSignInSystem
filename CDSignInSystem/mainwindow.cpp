@@ -34,7 +34,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->minSizeButton->setGeometry(QRect(920, 20, 26, 30));
 
     //videoLable大小更改
-    QPixmap *pixmap = new QPixmap(":/new/Img/scan_400x400.png");
+    QPixmap *pixmap = new QPixmap(":/new/Img/face.png");
     pixmap->scaled(ui->videoLable->size(), Qt::KeepAspectRatio);
     ui->videoLable->setScaledContents(true);
     ui->videoLable->setPixmap(*pixmap);

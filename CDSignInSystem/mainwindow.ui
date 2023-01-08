@@ -59,7 +59,7 @@ background-color: rgb(213, 213, 213);
    <widget class="QLabel" name="Time">
     <property name="geometry">
      <rect>
-      <x>700</x>
+      <x>730</x>
       <y>100</y>
       <width>191</width>
       <height>20</height>
@@ -294,14 +294,17 @@ QPushButton::disabled{
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>310</x>
       <y>30</y>
-      <width>184</width>
+      <width>311</width>
       <height>49</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;门神考勤签到系统&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700;&quot;&gt;门 神 考 勤 签 到 系 统&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>

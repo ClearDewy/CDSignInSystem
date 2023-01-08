@@ -3,6 +3,9 @@
 
 #include <QWidget>
 #include "sql.h"
+#include <QtCharts>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
 
 namespace Ui {
 class HomeWnd;

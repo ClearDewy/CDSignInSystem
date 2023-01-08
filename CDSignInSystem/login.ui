@@ -32,162 +32,6 @@ border:3px solid rgb(240, 240, 240);
 background-color:  rgb(135, 135, 135);
 }</string>
    </property>
-   <widget class="QWidget" name="horizontalLayoutWidget_3">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>261</y>
-      <width>241</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <item>
-      <widget class="QPushButton" name="confirmButton">
-       <property name="styleSheet">
-        <string notr="true">/**正常情况下样式**/
-QPushButton{
-	font: 10pt &quot;微软雅黑&quot;;
-    color: #2f3640;
-    background-color: #f5f6fa;
-    border-color: #DDDDDD;
-    border-radius: 15px;
-    border-style: solid;
-    border-width: 2px;
-    padding: 5px;
-}
-
-/**鼠标停留在按钮上的样式**/
-QPushButton::hover{	
-    color: #6ec0ff;
-    background-color: #e5f7ff;
-    border-color: #94d6ff;
-}
-
-/**鼠标按压下去的样式**/
-QPushButton::pressed,QPushButton::checked{
-    color: #6ec0ff;
-    background-color: #e5f7ff;
-    border-color: #4cabff; 
-}
-
-/**按钮失能情况下样式**/
-QPushButton::disabled{
-    color: #FFFFFF;
-    background-color: #dcdde1;
-    border-color: #dcdde1;
-}
-</string>
-       </property>
-       <property name="text">
-        <string>登录</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="concelButton">
-       <property name="styleSheet">
-        <string notr="true">/**正常情况下样式**/
-QPushButton{
-	font: 10pt &quot;微软雅黑&quot;;
-    color: #2f3640;
-    background-color: #f5f6fa;
-    border-color: #DDDDDD;
-    border-radius: 15px;
-    border-style: solid;
-    border-width: 2px;
-    padding: 5px;
-}
-
-/**鼠标停留在按钮上的样式**/
-QPushButton::hover{	
-    color: #6ec0ff;
-    background-color: #e5f7ff;
-    border-color: #94d6ff;
-}
-
-/**鼠标按压下去的样式**/
-QPushButton::pressed,QPushButton::checked{
-    color: #6ec0ff;
-    background-color: #e5f7ff;
-    border-color: #4cabff; 
-}
-
-/**按钮失能情况下样式**/
-QPushButton::disabled{
-    color: #FFFFFF;
-    background-color: #dcdde1;
-    border-color: #dcdde1;
-}
-</string>
-       </property>
-       <property name="text">
-        <string>取消</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>101</y>
-      <width>241</width>
-      <height>80</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QLineEdit" name="usernameEdit">
-       <property name="placeholderText">
-        <string>请输入用户名</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>40</y>
-      <width>241</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item alignment="Qt::AlignHCenter">
-      <widget class="QLabel" name="logInMessage">
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;门神考勤系统后端登录&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>181</y>
-      <width>241</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <widget class="QLineEdit" name="passwordEdit">
-       <property name="echoMode">
-        <enum>QLineEdit::Password</enum>
-       </property>
-       <property name="placeholderText">
-        <string>请输入密码</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QToolButton" name="closeButton">
     <property name="geometry">
      <rect>
@@ -264,6 +108,144 @@ QPushButton:default {
     </property>
     <property name="text">
      <string>...</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="logInMessage">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>40</y>
+      <width>200</width>
+      <height>59</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;门神考勤系统后端登录&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="usernameEdit">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>130</y>
+      <width>239</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>请输入用户名</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="passwordEdit">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>200</y>
+      <width>239</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+    <property name="placeholderText">
+     <string>请输入密码</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="confirmButton">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>270</y>
+      <width>116</width>
+      <height>37</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">/**正常情况下样式**/
+QPushButton{
+	font: 10pt &quot;微软雅黑&quot;;
+    color: #2f3640;
+    background-color: #f5f6fa;
+    border-color: #DDDDDD;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 5px;
+}
+
+/**鼠标停留在按钮上的样式**/
+QPushButton::hover{	
+    color: #6ec0ff;
+    background-color: #e5f7ff;
+    border-color: #94d6ff;
+}
+
+/**鼠标按压下去的样式**/
+QPushButton::pressed,QPushButton::checked{
+    color: #6ec0ff;
+    background-color: #e5f7ff;
+    border-color: #4cabff; 
+}
+
+/**按钮失能情况下样式**/
+QPushButton::disabled{
+    color: #FFFFFF;
+    background-color: #dcdde1;
+    border-color: #dcdde1;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>登录</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="concelButton">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>270</y>
+      <width>111</width>
+      <height>37</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">/**正常情况下样式**/
+QPushButton{
+	font: 10pt &quot;微软雅黑&quot;;
+    color: #2f3640;
+    background-color: #f5f6fa;
+    border-color: #DDDDDD;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 5px;
+}
+
+/**鼠标停留在按钮上的样式**/
+QPushButton::hover{	
+    color: #6ec0ff;
+    background-color: #e5f7ff;
+    border-color: #94d6ff;
+}
+
+/**鼠标按压下去的样式**/
+QPushButton::pressed,QPushButton::checked{
+    color: #6ec0ff;
+    background-color: #e5f7ff;
+    border-color: #4cabff; 
+}
+
+/**按钮失能情况下样式**/
+QPushButton::disabled{
+    color: #FFFFFF;
+    background-color: #dcdde1;
+    border-color: #dcdde1;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>取消</string>
     </property>
    </widget>
   </widget>
