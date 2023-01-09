@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>947</width>
+    <width>986</width>
     <height>592</height>
    </rect>
   </property>
@@ -41,19 +41,6 @@ background-color: rgb(213, 213, 213);
     </property>
     <property name="text">
      <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="messageLabel">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>130</y>
-      <width>81</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
     </property>
    </widget>
    <widget class="QLabel" name="Time">
@@ -295,7 +282,7 @@ QPushButton::disabled{
     <property name="geometry">
      <rect>
       <x>310</x>
-      <y>30</y>
+      <y>70</y>
       <width>311</width>
       <height>49</height>
      </rect>

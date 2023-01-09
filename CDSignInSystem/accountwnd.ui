@@ -42,6 +42,41 @@
      </property>
      <item>
       <widget class="QPushButton" name="addButton">
+       <property name="styleSheet">
+        <string notr="true">/**正常情况下样式**/
+QPushButton{
+	font: 10pt &quot;微软雅黑&quot;;
+    color: #2f3640;
+    background-color: #f5f6fa;
+    border-color: #DDDDDD;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 5px;
+}
+
+/**鼠标停留在按钮上的样式**/
+QPushButton::hover{	
+    color: #DDDDDD;
+    background-color: #e5f7ff;
+    border-color: #DDDDDD;
+}
+
+/**鼠标按压下去的样式**/
+QPushButton::pressed,QPushButton::checked{
+    color: #AAAAAA;
+    background-color: #e5f7ff;
+    border-color: #AAAAAA; 
+}
+
+/**按钮失能情况下样式**/
+QPushButton::disabled{
+    color: #FFFFFF;
+    background-color: #dcdde1;
+    border-color: #dcdde1;
+}
+</string>
+       </property>
        <property name="text">
         <string>添加用户</string>
        </property>
@@ -49,6 +84,41 @@
      </item>
      <item>
       <widget class="QPushButton" name="deleteUserButton">
+       <property name="styleSheet">
+        <string notr="true">/**正常情况下样式**/
+QPushButton{
+	font: 10pt &quot;微软雅黑&quot;;
+    color: #2f3640;
+    background-color: #f5f6fa;
+    border-color: #DDDDDD;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 5px;
+}
+
+/**鼠标停留在按钮上的样式**/
+QPushButton::hover{	
+    color: #DDDDDD;
+    background-color: #e5f7ff;
+    border-color: #DDDDDD;
+}
+
+/**鼠标按压下去的样式**/
+QPushButton::pressed,QPushButton::checked{
+    color: #AAAAAA;
+    background-color: #e5f7ff;
+    border-color: #AAAAAA; 
+}
+
+/**按钮失能情况下样式**/
+QPushButton::disabled{
+    color: #FFFFFF;
+    background-color: #dcdde1;
+    border-color: #dcdde1;
+}
+</string>
+       </property>
        <property name="text">
         <string>删除用户</string>
        </property>
@@ -56,6 +126,41 @@
      </item>
      <item>
       <widget class="QPushButton" name="saveButton">
+       <property name="styleSheet">
+        <string notr="true">/**正常情况下样式**/
+QPushButton{
+	font: 10pt &quot;微软雅黑&quot;;
+    color: #2f3640;
+    background-color: #f5f6fa;
+    border-color: #DDDDDD;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 5px;
+}
+
+/**鼠标停留在按钮上的样式**/
+QPushButton::hover{	
+    color: #DDDDDD;
+    background-color: #e5f7ff;
+    border-color: #DDDDDD;
+}
+
+/**鼠标按压下去的样式**/
+QPushButton::pressed,QPushButton::checked{
+    color: #AAAAAA;
+    background-color: #e5f7ff;
+    border-color: #AAAAAA; 
+}
+
+/**按钮失能情况下样式**/
+QPushButton::disabled{
+    color: #FFFFFF;
+    background-color: #dcdde1;
+    border-color: #dcdde1;
+}
+</string>
+       </property>
        <property name="text">
         <string>保存</string>
        </property>

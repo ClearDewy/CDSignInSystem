@@ -113,7 +113,7 @@ QPushButton:default {
    <widget class="QLabel" name="logInMessage">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>230</x>
       <y>40</y>
       <width>200</width>
       <height>59</height>
