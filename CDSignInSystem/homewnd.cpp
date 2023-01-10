@@ -25,18 +25,68 @@ HomeWnd::HomeWnd(Sql*s,QWidget *parent) :
     QPieSeries *series = new QPieSeries(this);
     series->append(slice_1);
     series->append(slice_2);
+    series->setPieSize(0.5);//设置饼图大小
 
     QChart *chart = new QChart();
     chart->addSeries(series);
     chart->setAnimationOptions(QChart::AllAnimations); // 设置显示时的动画效果
     chart->setTitle("在线人数统计");
-    chart->legend()->setAlignment(Qt::AlignRight);//图片放置
+    chart->legend()->setAlignment(Qt::AlignBottom);//图片放置
+
 
     QChartView *chartview = new QChartView(this);
     chartview->show();
     chartview->setChart(chart);
-
     ui->verticalLayout->insertWidget(0, chartview);
+
+
+
+    //折线图
+    QChart *chart_ = new QChart();
+    chart_->setTitle("近7天签到人数");
+
+    QLineSeries *series1 = new QLineSeries(chart_);
+
+    series1->setName("近7天签到人数");
+
+    std::vector<int>a(10);
+    a=s->getRecent(5);
+    for(int i=0;i<5;i++){
+        series1->append(i,a[i]);
+    }
+    chart_->addSeries(series1);
+
+    QScatterSeries *scatterSeries1 = new QScatterSeries();
+    scatterSeries1->setPointLabelsFormat("@yPoint");
+    scatterSeries1->setPointLabelsVisible();
+    scatterSeries1->setMarkerSize(4);
+    // *scatterSeries1 << QPointF(0,6);也可以
+    for(int i=0;i<5;i++){
+        scatterSeries1->append(i,a[i]);
+    }
+    chart_->addSeries(scatterSeries1);//数据显示
+    chart_->legend()->hide();//隐藏legend（图例）
+
+    //设置动画效果
+    chart->setAnimationOptions(QChart::AllAnimations);
+
+    chart_->createDefaultAxes();// 设置网格
+    chart_->axes(Qt::Horizontal).first()->setRange(0, 4);//设置x轴范围
+    chart_->axes(Qt::Vertical).first()->setRange(0, 20);//设置y轴范围
+
+    // Add space to label to add space between labels and axis 在标签和轴之间加空格
+    QValueAxis *axisY = qobject_cast<QValueAxis*>(chart_->axes(Qt::Vertical).first());
+    Q_ASSERT(axisY);
+    axisY->setLabelFormat("%.1f  ");
+    chart_->setTheme(QChart::ChartThemeLight);//自带主题
+    // 创建QChartView 对象
+    QChartView *chartView_;
+    // QChartView 对象载入折线图
+    chartView_ = new QChartView(chart_);
+    // 显示图标
+    ui->verticalLayout_2->insertWidget(0, chartView_);
+
+
 }
 
 HomeWnd::~HomeWnd()

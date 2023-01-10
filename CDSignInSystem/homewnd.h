@@ -4,8 +4,12 @@
 #include <QWidget>
 #include "sql.h"
 #include <QtCharts>
+#include <QChartView>
 #include <QtCharts/QPieSeries>
 #include <QtCharts/QPieSlice>
+#include <QLineSeries>
+class QChartView;
+class QChart;
 
 namespace Ui {
 class HomeWnd;
