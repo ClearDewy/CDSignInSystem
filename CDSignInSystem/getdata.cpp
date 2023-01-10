@@ -11,7 +11,7 @@ GetData::GetData(QWidget *parent) :
     connect(timer, SIGNAL(timeout()), this, SLOT(get_pic()));  // 时间到，读取当前摄像头信息
 
     //videoLable大小更改
-    QPixmap *pixmap = new QPixmap(":/new/Img/face.png");
+    pixmap = new QPixmap(":/new/Img/face.png");
     pixmap->scaled(ui->videoLable->size(), Qt::KeepAspectRatio);
     ui->videoLable->setScaledContents(true);
     ui->videoLable->setPixmap(*pixmap);
@@ -109,6 +109,7 @@ bool GetData::readFarme()
 bool GetData::get_pic(){
     if(user.getPicNum()>=10){
         timer->stop();
+        ui->videoLable->setPixmap(*pixmap);
         return true;
     }
     readFarme();

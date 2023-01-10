@@ -57,6 +57,7 @@ private:
     std::vector<cv::Rect> faceRect;
     // cv::Ptr<cv::face::FaceRecognizer> model = cv::face::EigenFaceRecognizer::create();      // 人脸分类器，检测是谁
     User user;
+    QPixmap *pixmap;
 };
 
 #endif // GETDATA_H

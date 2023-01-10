@@ -93,11 +93,25 @@ void Sql::getAllUser(QStandardItemModel&tmodel){
         tmodel.setItem(idx,3,new QStandardItem(query.value(3).toString()));
         if(query.value(4).toBool()){
             tmodel.setItem(idx,4,new QStandardItem(query.value(5).toString()));
+            for(int i=0;i<=4;i++){
+                tmodel.item(idx,i)->setBackground(QColor(Qt::green));
+            }
         }else{
             tmodel.setItem(idx,4,new QStandardItem("未打卡"));
         }
         idx++;
     }
+}
+
+std::vector<int>Sql::getRecent(int n){
+    query.clear();
+    std::vector<int>da(n+1);
+    query.exec(QString("SELECT date_format(`EndTime`, '%Y-%m-%d') dif,COUNT(DISTINCT(`UserId`)) FROM `record` WHERE DATEDIFF(`EndTime`,NOW()) BETWEEN -%1 AND 0 GROUP BY dif").arg(n));
+    while (query.next()) {
+       QDateTime datetime=query.value(0).toDateTime();
+       da[datetime.daysTo(QDateTime::currentDateTime())]=query.value(1).toInt();
+    }
+    return da;
 }
 
 void Sql::getCountTime(QStandardItemModel&tmodel,QDateTime startTime,QDateTime endTime){

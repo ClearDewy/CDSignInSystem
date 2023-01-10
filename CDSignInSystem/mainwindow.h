@@ -42,7 +42,6 @@ protected:
     QImage Mat2QImage(cv::Mat cvImg);       //图片转换
     bool OpenCamara();      // 打开摄像头
     bool CloseCamara();     // 关闭摄像头
-
     int Predict();          // 根据cap识别具体人物
     void init();
 private:
@@ -58,7 +57,9 @@ private:
     cv::Ptr<cv::face::FaceRecognizer> model = cv::face::EigenFaceRecognizer::create();      // 人脸分类器，检测是谁
     Sql sql;
     QPoint *dragPosition;
-
+    QPixmap *pixmap;
+    QStringListModel *messageListModel;
+    QStringList * messageList;
 
 };
 #endif // MAINWINDOW_H

@@ -34,11 +34,16 @@ MainWindow::MainWindow(QWidget *parent)
     ui->minSizeButton->setGeometry(QRect(920, 20, 26, 30));
 
     //videoLable大小更改
-    QPixmap *pixmap = new QPixmap(":/new/Img/face.png");
+    pixmap = new QPixmap(":/new/Img/face.png");
     pixmap->scaled(ui->videoLable->size(), Qt::KeepAspectRatio);
     ui->videoLable->setScaledContents(true);
     ui->videoLable->setPixmap(*pixmap);
     ui->cancelButton->hide();
+
+    // 消息框
+    messageList=new QStringList;
+    messageListModel=new QStringListModel(*messageList);
+    ui->listView->setModel(messageListModel);
 
 
     //音频播放
@@ -116,13 +121,19 @@ void MainWindow::readFarme()
             timer->stop();
             ui->SignIn->setEnabled(true);
             ui->cancelButton->hide();
-            if(QMessageBox::question(this,"打卡确认",tr("用户：%1 是否打卡？").arg(sql.getUser(predict).getName()))==QMessageBox::Yes){
+            ui->videoLable->setPixmap(*pixmap);
+            QString name=sql.getUser(predict).getName();
+
+            if(QMessageBox::question(this,"打卡确认",tr("用户：%1 是否打卡？").arg(name))==QMessageBox::Yes){
+                QString ti=QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
                 if(sql.signIn(predict)){
                     QMessageBox::information(this,"打卡成功",tr("签到成功"));
+                    messageList->append(tr("%1 :\n%2 签到成功").arg(ti).arg(name));
                 }else{
                     QMessageBox::information(this,"退签成功",tr("退签成功"));
+                    messageList->append(tr("%1 :\n%2 \n退签成功").arg(ti).arg(name));
                 }
-
+                messageListModel->setStringList(*messageList);
             }
         }
     }

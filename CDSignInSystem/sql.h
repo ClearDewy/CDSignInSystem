@@ -8,6 +8,7 @@
 #include <QIODevice>
 #include <QStandardItemModel>
 #include <qdatetime.h>
+#include <QColor>
 
 class Sql
 {
@@ -28,6 +29,7 @@ public:
     bool signIn(int);
     int getTotleUserNum();
     int getAliveUserNum();
+    std::vector<int>getRecent(int n);
 protected:
     void addFace(int,std::vector<cv::Mat>);
     QByteArray matToByte(cv::Mat&);
