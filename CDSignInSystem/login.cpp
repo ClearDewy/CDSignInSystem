@@ -8,6 +8,7 @@ LogIn::LogIn(QWidget *parent) :
     ui->setupUi(this);
 
     //背景设计
+    dragPosition = new QPoint;
     this->setFixedSize(QSize(668,400));
     this->setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint);
     ui->widget->setAutoFillBackground(true);

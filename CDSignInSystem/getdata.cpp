@@ -7,32 +7,8 @@ GetData::GetData(QWidget *parent) :
     ui(new Ui::GetData)
 {
     ui->setupUi(this);
-    timer=new QTimer;
-    connect(timer, SIGNAL(timeout()), this, SLOT(get_pic()));  // 时间到，读取当前摄像头信息
-
-    //videoLable大小更改
-    pixmap = new QPixmap(":/new/Img/face.png");
-    pixmap->scaled(ui->videoLable->size(), Qt::KeepAspectRatio);
-    ui->videoLable->setScaledContents(true);
-    ui->videoLable->setPixmap(*pixmap);
-    ui->cancelButton->hide();
-
+    init();
     ui->sureButton->setEnabled(false);
-    //加载分类训练器，OpenCv官方文档提供的xml文档，可以直接调用
-    //xml文档路径，  opencv\sources\data\haarcascades
-
-    //LineEdit信息删除
-    ui->nameEdit->setClearButtonEnabled(true);
-    ui->stuNumEdit->setClearButtonEnabled(true);
-    ui->majorEdit->setClearButtonEnabled(true);
-
-
-
-
-    if (!face_cascade.load(FACE_XML_PATH))
-    {
-        qDebug("Load haarcascade_frontalface_alt failed!");
-    }
 }
 
 GetData::GetData(User u,QWidget *parent):
@@ -40,23 +16,7 @@ GetData::GetData(User u,QWidget *parent):
     ui(new Ui::GetData)
 {
     ui->setupUi(this);
-    timer=new QTimer;
-    connect(timer, SIGNAL(timeout()), this, SLOT(get_pic()));  // 时间到，读取当前摄像头信息
-
-    //videoLable大小更改
-    QPixmap *pixmap = new QPixmap(":/new/Img/face.png");
-    pixmap->scaled(ui->videoLable->size(), Qt::KeepAspectRatio);
-    ui->videoLable->setScaledContents(true);
-    ui->videoLable->setPixmap(*pixmap);
-    ui->cancelButton->hide();
-
-    //加载分类训练器，OpenCv官方文档提供的xml文档，可以直接调用
-    //xml文档路径，  opencv\sources\data\haarcascades
-
-    if (!face_cascade.load(FACE_XML_PATH))
-    {
-        qDebug("Load haarcascade_frontalface_alt failed!");
-    }
+    init();
     user.setId(u.getId());
     ui->nameEdit->setText(u.getName());
     ui->stuNumEdit->setText(u.getStuNum());
@@ -67,6 +27,44 @@ GetData::~GetData()
 {
     delete timer;
     delete ui;
+}
+
+void GetData::init(){
+    timer=new QTimer;
+    dragPosition = new QPoint;
+\
+    //videoLable大小更改
+    pixmap = new QPixmap(":/new/Img/face.png");
+    pixmap->scaled(ui->videoLable->size(), Qt::KeepAspectRatio);
+    ui->videoLable->setScaledContents(true);
+    ui->videoLable->setPixmap(*pixmap);
+    ui->cancelButton->hide();
+
+    //背景
+    this->setFixedSize(QSize(628,400));
+    this->setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint);
+    ui->widget->setAutoFillBackground(true);
+    this->setAttribute(Qt::WA_TranslucentBackground);
+    ui->closeButton->setIcon(QIcon(":new/Img/close.png"));
+    ui->minSizeButton->setIcon(QIcon(":new/Img/remove.png"));
+    ui->closeButton->setIconSize(QSize(20,20));
+    ui->minSizeButton->setIconSize(QSize(20,20));
+
+    //加载分类训练器，OpenCv官方文档提供的xml文档，可以直接调用
+    //xml文档路径，  opencv\sources\data\haarcascades
+
+    connect(ui->minSizeButton,&QToolButton::clicked,this,&QDialog::showMinimized);
+    connect(ui->closeButton,&QToolButton::clicked,this,&QDialog::close);
+    connect(timer, SIGNAL(timeout()), this, SLOT(get_pic()));  // 时间到，读取当前摄像头信息
+    //LineEdit信息删除
+    ui->nameEdit->setClearButtonEnabled(true);
+    ui->stuNumEdit->setClearButtonEnabled(true);
+    ui->majorEdit->setClearButtonEnabled(true);
+
+    if (!face_cascade.load(FACE_XML_PATH))
+    {
+        qDebug("Load haarcascade_frontalface_alt failed!");
+    }
 }
 
 bool GetData::readFarme()
@@ -201,5 +199,28 @@ void GetData::on_cancelButton_clicked()
 void GetData::on_sureButton_clicked()
 {
     accept();
+}
+
+void GetData::mousePressEvent(QMouseEvent *event) {
+
+    if (event->button() == Qt::LeftButton) {
+
+        *dragPosition = event->globalPos() - frameGeometry().topLeft();
+
+        event->accept();
+
+    }
+
+}
+
+void GetData::mouseMoveEvent(QMouseEvent *event) {
+
+    if (event->buttons() & Qt::LeftButton) {
+
+        move(event->globalPos() - *dragPosition);
+
+        event->accept();
+
+    }
 }
 

@@ -7,6 +7,7 @@
 #include <opencv2/face.hpp>
 #include <fstream>
 #include <qtimer.h>
+#include <QMouseEvent>
 #include "user.h"
 
 #define TIME_INTERVAL 20        //获取摄像头图片间隔
@@ -38,6 +39,9 @@ private slots:
     void on_sureButton_clicked();
 
     bool get_pic();
+    void mousePressEvent(QMouseEvent *);
+    void mouseMoveEvent(QMouseEvent *);
+
 
 protected:
     QImage Mat2QImage(cv::Mat cvImg);       //图片转换
@@ -45,7 +49,7 @@ protected:
     bool CloseCamara();     // 关闭摄像头
     bool TakePhotos();      // 拍照
     bool readFarme();       // 获取摄像头每一帧
-
+    void init();
 
 private:
     Ui::GetData *ui;
@@ -58,6 +62,7 @@ private:
     // cv::Ptr<cv::face::FaceRecognizer> model = cv::face::EigenFaceRecognizer::create();      // 人脸分类器，检测是谁
     User user;
     QPixmap *pixmap;
+    QPoint *dragPosition;
 };
 
 #endif // GETDATA_H

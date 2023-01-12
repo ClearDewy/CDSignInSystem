@@ -13,33 +13,39 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="videoLable">
+  <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>30</y>
-     <width>251</width>
-     <height>251</height>
+     <x>0</x>
+     <y>0</y>
+     <width>631</width>
+     <height>401</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">.QWidget{
+background-color: rgb(135, 135, 135);
+border-radius: 15px;
+border:3px solid rgb(240, 240, 240);
+}
+.QWidget,.QToolButton{
+background-color:  rgb(135, 135, 135);
+}</string>
    </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="startButton">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>300</y>
-     <width>229</width>
-     <height>37</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">/**正常情况下样式**/
+   <widget class="QPushButton" name="sureButton">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>310</y>
+      <width>111</width>
+      <height>37</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">/**正常情况下样式**/
 QPushButton{
 	font: 10pt &quot;微软雅黑&quot;;
     color: #2f3640;
@@ -72,73 +78,90 @@ QPushButton::disabled{
     border-color: #dcdde1;
 }
 </string>
-   </property>
-   <property name="text">
-    <string>开始录入</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="sureButton">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>340</x>
-     <y>300</y>
-     <width>111</width>
-     <height>37</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">/**正常情况下样式**/
-QPushButton{
-	font: 10pt &quot;微软雅黑&quot;;
-    color: #2f3640;
-    background-color: #f5f6fa;
-    border-color: #DDDDDD;
-    border-radius: 15px;
-    border-style: solid;
-    border-width: 2px;
-    padding: 5px;
-}
-
-/**鼠标停留在按钮上的样式**/
-QPushButton::hover{	
-    color: #6ec0ff;
-    background-color: #e5f7ff;
-    border-color: #94d6ff;
-}
-
-/**鼠标按压下去的样式**/
-QPushButton::pressed,QPushButton::checked{
-    color: #6ec0ff;
-    background-color: #e5f7ff;
-    border-color: #4cabff; 
-}
-
-/**按钮失能情况下样式**/
-QPushButton::disabled{
-    color: #FFFFFF;
-    background-color: #dcdde1;
-    border-color: #dcdde1;
-}
-</string>
-   </property>
-   <property name="text">
-    <string>确定</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="cancelButton">
-   <property name="geometry">
-    <rect>
-     <x>460</x>
-     <y>300</y>
-     <width>111</width>
-     <height>37</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">/**正常情况下样式**/
+    </property>
+    <property name="text">
+     <string>确定</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>140</y>
+      <width>51</width>
+      <height>78</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>学号：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="videoLable">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>40</y>
+      <width>251</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>210</y>
+      <width>45</width>
+      <height>78</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>专业：</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="stuNumEdit">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>170</y>
+      <width>171</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>请输入学号</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>70</y>
+      <width>51</width>
+      <height>78</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>姓名：</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="cancelButton">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>310</y>
+      <width>111</width>
+      <height>37</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">/**正常情况下样式**/
 QPushButton{
 	font: 10pt &quot;微软雅黑&quot;;
     color: #2f3640;
@@ -171,88 +194,163 @@ QPushButton::disabled{
     border-color: #dcdde1;
 }
 </string>
-   </property>
-   <property name="text">
-    <string>取消</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>200</y>
-     <width>45</width>
-     <height>78</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>专业：</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="majorEdit">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>230</y>
-     <width>171</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>请输入专业</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="stuNumEdit">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>160</y>
-     <width>171</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>请输入学号</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>130</y>
-     <width>51</width>
-     <height>78</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>学号：</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="nameEdit">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>90</y>
-     <width>171</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>请输入姓名</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>60</y>
-     <width>51</width>
-     <height>78</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>姓名：</string>
-   </property>
+    </property>
+    <property name="text">
+     <string>取消</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="nameEdit">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>100</y>
+      <width>171</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>请输入姓名</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="majorEdit">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>240</y>
+      <width>171</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>请输入专业</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="startButton">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>310</y>
+      <width>229</width>
+      <height>37</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">/**正常情况下样式**/
+QPushButton{
+	font: 10pt &quot;微软雅黑&quot;;
+    color: #2f3640;
+    background-color: #f5f6fa;
+    border-color: #DDDDDD;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 5px;
+}
+
+/**鼠标停留在按钮上的样式**/
+QPushButton::hover{	
+    color: #6ec0ff;
+    background-color: #e5f7ff;
+    border-color: #94d6ff;
+}
+
+/**鼠标按压下去的样式**/
+QPushButton::pressed,QPushButton::checked{
+    color: #6ec0ff;
+    background-color: #e5f7ff;
+    border-color: #4cabff; 
+}
+
+/**按钮失能情况下样式**/
+QPushButton::disabled{
+    color: #FFFFFF;
+    background-color: #dcdde1;
+    border-color: #dcdde1;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>开始录入</string>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="closeButton">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>30</y>
+      <width>26</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QToolButton{   
+	border-top: 3px outset transparent;           /* 上边框宽度3像素、突出显示、颜色为透明 */
+	border-bottom: 3px outset transparent;
+	border-right: 3px outset transparent;
+	border-left: 3px outset transparent;
+    min-width: 20px;                            /* 控件最小宽度 */
+    min-height: 20px;
+}
+
+/* 鼠标悬停 */
+QToolButton:hover{
+	background-color: rgb(205, 205, 205);
+}
+
+/* 点击和按下 */
+QToolButton:pressed{
+	/*border-left: 3px outset rgb(93, 95, 97); 左边框宽度3像素、突出显示、颜色为深深灰 */
+	background-color: rgb(246, 246, 246);	
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+</string>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="minSizeButton">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>30</y>
+      <width>26</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QToolButton{   
+	border-top: 3px outset transparent;           /* 上边框宽度3像素、突出显示、颜色为透明 */
+	border-bottom: 3px outset transparent;
+	border-right: 3px outset transparent;
+	border-left: 3px outset transparent;
+    min-width: 20px;                            /* 控件最小宽度 */
+    min-height: 20px;
+}
+
+/* 鼠标悬停 */
+QToolButton:hover{
+	background-color: rgb(205, 205, 205);
+}
+
+/* 点击和按下 */
+QToolButton:pressed{
+	/*border-left: 3px outset rgb(93, 95, 97); 左边框宽度3像素、突出显示、颜色为深深灰 */
+	background-color: rgb(246, 246, 246);	
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}
+</string>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>
