@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QTimer>
 #include <QMouseEvent>
+#include <QTextToSpeech>
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc/types_c.h>
 #include <opencv2/face.hpp>
@@ -60,6 +61,6 @@ private:
     QPixmap *pixmap;
     QStringListModel *messageListModel;
     QStringList * messageList;
-
+    QTextToSpeech *voice;
 };
 #endif // MAINWINDOW_H

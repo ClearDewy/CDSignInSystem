@@ -47,8 +47,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     //音频播放
-    //QSound *bells =new QSound("/mnt/hgfs/linux-share-dir/666.wav");
-   // bells->play();
+    voice=new QTextToSpeech;
 
     //加载分类训练器，OpenCv官方文档提供的xml文档，可以直接调用
     //xml文档路径，  opencv\sources\data\haarcascades
@@ -129,9 +128,11 @@ void MainWindow::readFarme()
                 if(sql.signIn(predict)){
                     QMessageBox::information(this,"打卡成功",tr("签到成功"));
                     messageList->append(tr("%1 :\n%2 签到成功").arg(ti).arg(name));
+                    voice->say(tr("%1签到成功").arg(name));
                 }else{
                     QMessageBox::information(this,"退签成功",tr("退签成功"));
-                    messageList->append(tr("%1 :\n%2 \n退签成功").arg(ti).arg(name));
+                    messageList->append(tr("%1 :\n%2 退签成功").arg(ti).arg(name));
+                    voice->say(tr("%1退签成功").arg(name));
                 }
                 messageListModel->setStringList(*messageList);
             }
