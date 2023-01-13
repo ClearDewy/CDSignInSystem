@@ -5,7 +5,6 @@
 #include <QTime>
 #include <QTimer>
 #include <qdatetime.h>
-//音频
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -65,6 +64,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(timer, SIGNAL(timeout()), this, SLOT(readFarme()));  // 时间到，读取当前摄像头信息
     connect(ui->minSizeButton,&QToolButton::clicked,this,&QMainWindow::showMinimized);
     connect(ui->closeButton,&QToolButton::clicked,this,&QMainWindow::close);
+
+    //音频
+    voice->say("欢迎使用门神考勤系统");
 }
 
 MainWindow::~MainWindow()
