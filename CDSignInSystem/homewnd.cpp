@@ -43,11 +43,11 @@ HomeWnd::HomeWnd(Sql*s,QWidget *parent) :
 
     //折线图
     QChart *chart_ = new QChart();
-    chart_->setTitle("近7天签到人数");
+    chart_->setTitle("近4天签到人数");
 
     QLineSeries *series1 = new QLineSeries(chart_);
 
-    series1->setName("近7天签到人数");
+    series1->setName("近4天签到人数");
 
     std::vector<int>a(10);
     a=s->getRecent(5);
